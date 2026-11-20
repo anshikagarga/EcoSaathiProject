@@ -2,7 +2,8 @@ const express = require('express');
 const cors = require('cors');
 
 const authRoutes = require('./routes/authRoutes');
-const issueRoutes = require('./routes/issues');
+const scheduleRoutes = require('./routes/scheduleRoutes');
+const issueRoutes = require('./routes/issueRoutes');
 
 const app = express();
 
@@ -18,16 +19,8 @@ app.get('/api/health', (req, res) => {
 });
 
 app.use('/api/auth', authRoutes);
-
-app.get('/api/schedules', (req, res) => {
-  res.json({
-    status: 'success',
-    data: [
-      { id: 1, wasteType: 'Wet & Dry Waste', collectionDate: 'Mon-Sat', collectionTime: '07:30 AM - 09:30 AM', instructions: 'Keep wet and dry waste in separate bins.' }
-    ]
-  });
-});
-
+app.use('/api/schedules', scheduleRoutes);
 app.use('/api/issues', issueRoutes);
+app.use('/api/admin/issues', issueRoutes);
 
 module.exports = app;
