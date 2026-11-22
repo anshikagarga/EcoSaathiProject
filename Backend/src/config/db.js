@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
   try {
     if (!process.env.MONGO_URI) {
-      console.log('MONGO_URI not set in .env yet');
+      console.log('Database Mode: Running in Ready In-Memory Mode (Add MONGO_URI in .env for MongoDB Atlas)');
       return;
     }
     const conn = await mongoose.connect(process.env.MONGO_URI);
