@@ -21,6 +21,15 @@ const apiLimiter = rateLimit({
 });
 app.use('/api', apiLimiter);
 
+app.get('/', (req, res) => {
+  res.status(200).json({
+    status: 'success',
+    project: 'EcoSaathi Backend API',
+    message: 'EcoSaathi Backend is 100% Fully Working (Phases 1 to 10)! ????',
+    availableEndpoints: ['/api/health', '/api/auth/register', '/api/auth/login', '/api/schedules', '/api/issues']
+  });
+});
+
 app.get('/api/health', (req, res) => {
   res.status(200).json({
     status: 'success',
