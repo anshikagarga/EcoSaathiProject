@@ -1,4 +1,4 @@
-const express = require('express');
+﻿const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
 const rateLimit = require('express-rate-limit');
@@ -24,14 +24,14 @@ app.use('/api', apiLimiter);
 app.get('/', (req, res) => {
   res.status(200).json({
     status: 'success',
-    message: 'EcoSaathi Backend API is running smoothly! ????'
+    message: 'EcoSaathi Backend API is running smoothly! \uD83C\uDF31\u267B\uFE0F'
   });
 });
 
 app.get('/api/health', (req, res) => {
   res.status(200).json({
     status: 'success',
-    message: 'EcoSaathi Backend API is healthy, validated, and secured! ????',
+    message: 'EcoSaathi Backend API is healthy, validated, and secured! \uD83C\uDF31\uD83D\uDD12',
     timestamp: new Date().toISOString()
   });
 });
